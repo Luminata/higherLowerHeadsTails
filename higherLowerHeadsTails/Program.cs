@@ -7,7 +7,30 @@ namespace higherLowerHeadsTails
 
         static void Main(string[] args)
         {
-            headTail();
+            Console.WriteLine("Would you like to play 1. HigherLower or 2. HeadsTails? Press 0 to quit.");
+            bool keepGoing = true;
+            while (keepGoing)
+            {
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        lowHigh();
+                        break;
+                    case "2":
+                        headTail();
+                        break;
+                    case "0":
+                        Console.WriteLine("Thanks for playing! :)");
+                        keepGoing = false;
+                        break;
+                    default:
+                        Console.WriteLine("That is not a valid choice.");
+                        break;
+
+                }
+            }
         }
 
 
@@ -18,7 +41,7 @@ namespace higherLowerHeadsTails
             int value = rnd.Next(1, 50);
             bool keepGoing = true;
 
-            Console.WriteLine($"Guess a number between 1 and 50 {value}, press 0 to quit");
+            Console.WriteLine($"Guess a number between 1 and 50, press 0 to quit");
             
             while (keepGoing)
             {
@@ -30,8 +53,8 @@ namespace higherLowerHeadsTails
 
                     if (guess == value)
                     {
-                        keepGoing = false;
-                        Console.WriteLine("You got it!");
+                        Console.WriteLine("You got it! Press 0 to quit :)");
+                        keepGoing=false;
                     }
                     else if (guess > value)
                     {
@@ -52,6 +75,7 @@ namespace higherLowerHeadsTails
                     Console.WriteLine("That is not a valid Answer");
                 }
             }
+            
         }
 
         public static void headTail()
@@ -72,7 +96,7 @@ namespace higherLowerHeadsTails
                     if (guess == value)
                     {
                         keepGoing = false;
-                        Console.WriteLine("You got it!");
+                        Console.WriteLine("You got it! Press 0 to quit :)");
                     }
                     else if(guess != value)
                     {
